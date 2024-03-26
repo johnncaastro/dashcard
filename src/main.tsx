@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import { App } from './app.tsx'
-import { Sidebar } from './components/sidebar.tsx'
+import { Sidebar } from './components/Sidebar/sidebar.tsx'
 
 import './index.css'
 
