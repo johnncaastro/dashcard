@@ -20,6 +20,10 @@ export default {
         gray: {
           500: '#4f4f4f',
           700: '#222222',
+          900: '#1c1c1c',
+        },
+        orange: {
+          500: '#fc773c',
         },
         white: {
           100: '#fff',
