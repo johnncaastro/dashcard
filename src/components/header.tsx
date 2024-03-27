@@ -1,3 +1,4 @@
+import { Button } from './button'
 import { Search, Bell } from 'lucide-react'
 
 export function Header() {
@@ -5,21 +6,10 @@ export function Header() {
     <header className="flex items-center text-gray-900">
       <h1 className="mr-16 text-3xl font-semibold">Wallet</h1>
       <div className="space-x-6">
-        <button
-          type="button"
-          className="bg-white-100 hover:text-white-100 rounded-full px-8 py-1 transition-colors duration-200 hover:bg-orange-500"
-        >
-          Day
-        </button>
-        <button type="button" className="bg-white-100 rounded-full px-8 py-1">
-          Week
-        </button>
-        <button type="button" className="bg-white-100 rounded-full px-8 py-1">
-          Month
-        </button>
-        <button type="button" className="bg-white-100 rounded-full px-8 py-1">
-          Year
-        </button>
+        <Button title="Day" />
+        <Button title="Week" />
+        <Button title="Month" />
+        <Button title="Year" />
       </div>
       <div className="ml-auto flex items-center gap-6">
         <button type="button">
