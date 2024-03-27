@@ -5,9 +5,9 @@ import { Sidebar } from './components/Sidebar/index.tsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <div className="max-w-app grid-cols-app grid min-h-screen">
+  <div className="grid min-h-screen max-w-app grid-cols-app">
     <Sidebar />
-    <main className="bg-white-300 py-11 pl-14 pr-10">
+    <main className="bg-white-300 py-8 pl-14 pr-10">
       <App />
     </main>
   </div>,

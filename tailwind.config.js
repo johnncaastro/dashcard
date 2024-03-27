@@ -12,12 +12,19 @@ export default {
       gridTemplateColumns: {
         app: '5rem 1fr',
       },
+      gap: {
+        '1/4': '0.25px',
+      },
       padding: {
         18: '4.5rem',
         21: '5.25rem',
       },
+      minHeight: {
+        '9/10': '90%',
+      },
       colors: {
         gray: {
+          300: '#b7b7b7',
           500: '#4f4f4f',
           700: '#222222',
           900: '#1c1c1c',
