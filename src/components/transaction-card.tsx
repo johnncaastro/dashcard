@@ -23,5 +23,5 @@ interface TransactionCardPriceProps {
 }
 
 export function TransactionCardPrice({ price }: TransactionCardPriceProps) {
-  return <p className="ml-auto self-start">-R${price}</p>
+  return <p className="ml-auto self-start">-${price}</p>
 }
