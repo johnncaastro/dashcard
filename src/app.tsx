@@ -14,15 +14,17 @@ import {
   TransactionCardText,
 } from './components/transaction-card'
 
-const chart: Props = {
+const areaChart: Props = {
   options: {
     colors: ['#8743d8'],
     chart: {
-      id: 'basic-bar',
-      height: '100%',
+      id: 'area-chart',
       fontFamily: 'Poppins, sans-serif',
       toolbar: {
         show: false,
+      },
+      zoom: {
+        enabled: false,
       },
     },
     dataLabels: {
@@ -95,6 +97,76 @@ const chart: Props = {
   ],
 }
 
+const barChart: Props = {
+  options: {
+    colors: ['#fc773c'],
+    chart: {
+      id: 'bar-chart',
+      fontFamily: 'Poppins, sans-serif',
+      toolbar: {
+        show: false,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      show: false,
+    },
+    annotations: {
+      xaxis: [
+        {
+          x: 'Fr',
+          borderWidth: 0,
+          label: {
+            text: '65%',
+            borderColor: '#1c1c1c',
+            borderRadius: 3,
+            orientation: 'horizontal',
+            offsetY: 30,
+            style: {
+              color: '#fff',
+              background: '#1c1c1c',
+              padding: {
+                left: 8,
+                right: 8,
+                top: 2,
+                bottom: 2,
+              },
+            },
+          },
+        },
+      ],
+    },
+    xaxis: {
+      categories: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+      labels: {
+        style: {
+          colors: '#b7b7b7',
+          fontWeight: 500,
+        },
+      },
+      axisBorder: {
+        show: false,
+      },
+      axisTicks: {
+        show: false,
+      },
+    },
+    yaxis: {
+      show: false,
+      min: 0,
+      max: 100,
+    },
+  },
+  series: [
+    {
+      name: 'Percentage',
+      data: [30, 55, 20, 30, 65, 35, 25],
+    },
+  ],
+}
+
 export function App() {
   return (
     <>
@@ -159,10 +231,21 @@ export function App() {
         </div>
         <div className="col-span-3 row-span-3 rounded-3xl bg-white-100">
           <h2 className="px-6 pt-4 text-xl font-semibold">Activity</h2>
-          <Chart options={chart.options} series={chart.series} type="area" />
+          <Chart
+            options={areaChart.options}
+            series={areaChart.series}
+            type="area"
+            height={230}
+          />
         </div>
-        <div className="col-span-3 row-span-3 rounded-3xl bg-white-100 px-6 py-4">
-          <h2 className="text-xl font-semibold">Payments</h2>
+        <div className="col-span-3 row-span-3 rounded-3xl bg-white-100 px-2">
+          <h2 className="px-4 pt-4 text-xl font-semibold">Payments</h2>
+          <Chart
+            options={barChart.options}
+            series={barChart.series}
+            type="bar"
+            height={230}
+          />
         </div>
       </div>
     </>
