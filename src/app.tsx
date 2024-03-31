@@ -6,6 +6,8 @@ import {
   ShoppingCart,
   GraduationCap,
   CarFront,
+  FerrisWheel,
+  UtensilsCrossed,
 } from 'lucide-react'
 import {
   TransactionCardPrefix,
@@ -167,11 +169,51 @@ const barChart: Props = {
   ],
 }
 
+const radialBarChart: Props = {
+  options: {
+    colors: ['#8743d8'],
+    chart: {
+      type: 'radialBar',
+      fontFamily: 'Poppins, sans-serif',
+    },
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          size: '74%',
+        },
+        dataLabels: {
+          name: {
+            fontSize: '40px',
+            fontWeight: 600,
+            color: '#1c1c1c',
+          },
+          value: {
+            show: true,
+            fontSize: '40px',
+            fontWeight: 500,
+            color: '#1c1c1c',
+            offsetY: -40,
+          },
+          total: {
+            show: true,
+            label: '$1284/$6832',
+            fontSize: '18px',
+            fontWeight: 500,
+            color: '#b7b7b7',
+          },
+        },
+      },
+    },
+    labels: ['68%'],
+  },
+  series: [68],
+}
+
 export function App() {
   return (
     <>
       <Header />
-      <div className="mt-8 grid min-h-9/10 grid-cols-9 grid-rows-6 gap-8">
+      <div className="mt-8 grid min-h-9/10 grid-cols-9 grid-rows-6 gap-8 text-gray-900">
         <div className="col-span-6 row-span-3 flex items-start justify-between rounded-3xl bg-white-100 px-6 py-4">
           <div className="flex-1">
             <h2 className="text-xl font-semibold">My card</h2>
@@ -189,7 +231,7 @@ export function App() {
                 <strong className="font-normal">Apple store</strong>
                 <span className="text-gray-300">Store</span>
               </TransactionCardText>
-              <TransactionCardPrice price="145,79" />
+              <TransactionCardPrice price="145.79" />
             </TransactionCardRoot>
 
             <TransactionCardRoot>
@@ -200,7 +242,7 @@ export function App() {
                 <strong className="font-normal">Supermarket</strong>
                 <span className="text-gray-300">Grocery</span>
               </TransactionCardText>
-              <TransactionCardPrice price="358,29" />
+              <TransactionCardPrice price="358.29" />
             </TransactionCardRoot>
 
             <TransactionCardRoot>
@@ -211,7 +253,7 @@ export function App() {
                 <strong className="font-normal">Rocketseat One</strong>
                 <span className="text-gray-300">Education</span>
               </TransactionCardText>
-              <TransactionCardPrice price="1645,79" />
+              <TransactionCardPrice price="1645.79" />
             </TransactionCardRoot>
 
             <TransactionCardRoot>
@@ -222,12 +264,80 @@ export function App() {
                 <strong className="font-normal">Uber</strong>
                 <span className="text-gray-300">Transport</span>
               </TransactionCardText>
-              <TransactionCardPrice price="264,59" />
+              <TransactionCardPrice price="264.59" />
             </TransactionCardRoot>
           </div>
         </div>
         <div className="col-span-3 row-span-6 rounded-3xl bg-white-100 px-6 py-4">
-          <h2>Expense Control</h2>
+          <Chart
+            options={radialBarChart.options}
+            series={radialBarChart.series}
+            type="radialBar"
+            height={280}
+          />
+          <h2 className="text-center text-xl font-semibold">Total Expenses</h2>
+          <div className="mt-6 h-3 w-full rounded-xl bg-orange-500" />
+          <div className="mt-6 space-y-4">
+            <TransactionCardRoot>
+              <TransactionCardPrefix>
+                <ShoppingCart className="h-5 w-5 text-gray-900" />
+              </TransactionCardPrefix>
+              <TransactionCardText>
+                <span className="text-gray-300">Grocery</span>
+              </TransactionCardText>
+              <TransactionCardPrice price="324.30" />
+            </TransactionCardRoot>
+
+            <TransactionCardRoot>
+              <TransactionCardPrefix>
+                <ShoppingBag className="h-5 w-5 text-gray-900" />
+              </TransactionCardPrefix>
+              <TransactionCardText>
+                <span className="text-gray-300">Store</span>
+              </TransactionCardText>
+              <TransactionCardPrice price="216.80" />
+            </TransactionCardRoot>
+
+            <TransactionCardRoot>
+              <TransactionCardPrefix>
+                <GraduationCap className="h-5 w-5 text-gray-900" />
+              </TransactionCardPrefix>
+              <TransactionCardText>
+                <span className="text-gray-300">Education</span>
+              </TransactionCardText>
+              <TransactionCardPrice price="118.00" />
+            </TransactionCardRoot>
+
+            <TransactionCardRoot>
+              <TransactionCardPrefix>
+                <FerrisWheel className="h-5 w-5 text-gray-900" />
+              </TransactionCardPrefix>
+              <TransactionCardText>
+                <span className="text-gray-300">Entertainment</span>
+              </TransactionCardText>
+              <TransactionCardPrice price="98.00" />
+            </TransactionCardRoot>
+
+            <TransactionCardRoot>
+              <TransactionCardPrefix>
+                <UtensilsCrossed className="h-5 w-5 text-gray-900" />
+              </TransactionCardPrefix>
+              <TransactionCardText>
+                <span className="text-gray-300">Food</span>
+              </TransactionCardText>
+              <TransactionCardPrice price="324.30" />
+            </TransactionCardRoot>
+
+            <TransactionCardRoot>
+              <TransactionCardPrefix>
+                <CarFront className="h-5 w-5 text-gray-900" />
+              </TransactionCardPrefix>
+              <TransactionCardText>
+                <span className="text-gray-300">Transport</span>
+              </TransactionCardText>
+              <TransactionCardPrice price="284.80" />
+            </TransactionCardRoot>
+          </div>
         </div>
         <div className="col-span-3 row-span-3 rounded-3xl bg-white-100">
           <h2 className="px-6 pt-4 text-xl font-semibold">Activity</h2>
